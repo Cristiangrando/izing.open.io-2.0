@@ -48,28 +48,29 @@ Seguem links sugerimos:
 ## Diferenças dessa versão repositorio ldurans
 
 Bugs:
-*Correção encaminhar mensagens
-*Correção envio arquivos
-*Correção bug montar fluxo (perdia etapa 2 cliques)
-*Correção bug envio video
-*Correção bug apagar mensagem
-*Correção bug apagar mensagem agendada
-*Correção arquivos sumir do chatbot
+
+- Correção encaminhar mensagens
+- Correção envio arquivos
+- Correção bug montar fluxo (perdia etapa 2 cliques)
+- Correção bug envio video
+- Correção bug apagar mensagem
+- Correção bug apagar mensagem agendada
+- Correção arquivos sumir do chatbot
 
 Melhorias:
-*Arquivo server.js frontend para facilitar instalacao
-*Atualizacao versao whaapp.js^1.23.1-alpha.6 para melhorar a conexao whatsapp
-*Abas aberto, pedente, fechado e grupos no painel atendimento 
-*Tickets fechados ja vir selecionado atendimento(como coloquei abas para separar atendimentos achei melhor fechados já aparecer)
-*Fundo dark whatsapp para modo escuro 
-*Botao espiar ticket e adaptacao layout
-*Mudanca cache local melhora na conexão(depois varios testes veriquei que com essa mudança a conexão fica mais rapida e da menos erros leitura QRCODE)
-*Update libs instagram para melhor conexão com instagram
-*Botao modelo planilha para importar contatos 
-*Botao modelo POSTMAN api
-*Emoji na mensagem de despedida
-*Variáveis nas campanhas
-*Aceitar audios gravados no whatsapp-formato .ogg
+- Arquivo server.js frontend para facilitar instalacao
+- Atualizacao versao whaapp.js^1.23.1-alpha.6 para melhorar a conexao whatsapp
+- Abas aberto, pedente, fechado e grupos no painel atendimento 
+- Tickets fechados ja vir selecionado atendimento(como coloquei abas para separar atendimentos achei melhor fechados já aparecer)
+- Fundo dark whatsapp para modo escuro 
+- Botao espiar ticket e adaptacao layout
+- Mudanca cache local melhora na conexão(depois varios testes veriquei que com essa mudança a conexão fica mais rapida e da menos erros leitura QRCODE)
+- Update libs instagram para melhor conexão com instagram
+- Botao modelo planilha para importar contatos 
+- Botao modelo POSTMAN api
+- Emoji na mensagem de despedida
+- Variáveis nas campanhas
+- Aceitar audios gravados no whatsapp-formato .ogg
 
 
 ## Atualizando
