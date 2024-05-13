@@ -8,7 +8,7 @@ Site baixar Node 18 para windows
 https://nodejs.org/en/download
 
 Link para baixar codigo izing
-https://github.com/ldurans/izing.open.io/archive/refs/heads/master.zip
+https://github.com/cleitonme/izing.open.io/archive/refs/heads/master.zip
 
 Link baixar Google Chrome:
 https://www.google.com/intl/pt-BR/chrome/

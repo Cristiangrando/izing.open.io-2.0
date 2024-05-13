@@ -168,7 +168,7 @@ cd ~
 25. baixar o repositório do izing.open.io
 
 ```bash
-git clone https://github.com/ldurans/izing.io.git izing.io
+git clone https://github.com/cleitonme/izing.open.io.git izing.io
 ```
 
 26. Copiar o env de exemplo para o backend
