@@ -71,7 +71,7 @@ Melhorias:
 - Emoji na mensagem de despedida
 - Variáveis nas campanhas
 - Aceitar audios gravados no whatsapp-formato .ogg
-
+- Evitar duplicar contatos na importação *créditos Luiz Alvez
 
 ## Atualizando
 
