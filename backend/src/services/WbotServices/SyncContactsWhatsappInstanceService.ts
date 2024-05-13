@@ -28,8 +28,8 @@ const SyncContactsWhatsappInstanceService = async (
     // eslint-disable-next-line @typescript-eslint/ban-types
     const dataArray: object[] = [];
     await Promise.all(
-      contacts.map(async ({ name, pushname, number, isGroup }) => {
-        if ((name || pushname) && !isGroup) {
+      contacts.map(async ({ name, pushname, number, isGroup, id }) => {
+        if ((name || pushname) && !isGroup && id.server !== "lid") {
           // const profilePicUrl = await wbot.getProfilePicUrl(`${number}@c.us`);
           const contactObj = { name: name || pushname, number, tenantId };
           dataArray.push(contactObj);
