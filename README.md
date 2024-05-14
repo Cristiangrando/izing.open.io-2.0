@@ -29,6 +29,7 @@ Melhorias:
 - Evitar duplicar contatos na importação *créditos Luiz Alvez
 - Conversão de audio de ogg para mp3 para suporte sistema IOS (necessário ter instalado ffmpeg - apt install ffmpeg)
 - Suporte receber localização
+- Retirada de bloqueio que não deixava voltar para etapa anterior do fluxo
 
 # Izing
 
