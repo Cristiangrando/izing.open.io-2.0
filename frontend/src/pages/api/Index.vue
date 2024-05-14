@@ -124,6 +124,13 @@
                 {{ api.authToken }}
               </p>
             </q-item-label>
+            <q-item-label style="word-break: break-all;">
+              <p class="text-weight-medium text-nowrap q-pr-md">
+                <span class="text-bold">Baixe o arquivo acima e use no para verificar como usar a api
+                </span>
+                <a href="https://www.postman.com/" target="_blank">https://www.postman.com/</a>
+              </p>
+            </q-item-label>
             <q-item-label
               lines="1"
               class="q-mt-xs text-body2 text-weight-bold text-primary text-uppercase"
