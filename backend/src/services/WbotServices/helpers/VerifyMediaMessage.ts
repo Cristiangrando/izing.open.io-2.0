@@ -50,18 +50,12 @@ const VerifyMediaMessage = async (
       "base64"
     )
       .then(() => {
-        console.log("Arquivo salvo com sucesso!");
 
         if (inputFile.endsWith(".ogg")) {
           outputFile = inputFile.replace(".ogg", ".mp3");
         } else {
-          // Ignora outros formatos de arquivo
-          console.log("Formato de arquivo não suportado para conversão:", inputFile);
           return;
         }
-
-        console.log("Input File:", inputFile);
-        console.log("Output File:", outputFile);
 
         return new Promise<void>((resolve, reject) => {
           ffmpeg(inputFile)
@@ -77,7 +71,6 @@ const VerifyMediaMessage = async (
       })
       .then(() => {
         if (outputFile) {
-          console.log("Conversão concluída!");
           fs.unlinkSync(inputFile);
           media.filename = outputFile.split('/').pop();
         }
