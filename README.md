@@ -65,6 +65,8 @@ Seguem links sugerimos:
 
 Tem script "update-izing" para facilitar atualização ele somente funciona se tiver instalado pasta izing.io
 
+sh update-izing
+
 <br/>
 
 **IMPORTANTE**: verifique sempre o .env.example e ajuste o seu .env antes de atualizar, uma vez que algumas novas variáveis podem ser adicionadas.
