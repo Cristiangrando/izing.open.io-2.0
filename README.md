@@ -80,3 +80,11 @@ sh update-izing
 A utilização desta ferramenta é feita por sua conta e risco. O código é aberto e todos podem contribuir.
 
 Este projeto não é afiliado, associado, autorizado, endossado por, ou de qualquer forma oficialmente ligado à WhatsApp, ou a qualquer uma das suas filiais ou afiliadas. O website oficial da WhatsApp pode ser encontrado em <https://whatsapp.com>. "WhatsApp", bem como nomes, marcas, emblemas e imagens relacionadas são marcas registadas dos seus respectivos proprietários.
+
+## Recomendação de VPS boa e barata
+
+-  [Powerful cloud VPS & Web hosting.](https://control.peramix.com/?affid=58)
+
+## Consultoria particular
+
+Para quem gostaria de uma consultoria ou que eu faça instalação pode chamar no whatsapp 48 999416725 (será cobrado por isso)
