@@ -106,15 +106,15 @@ args.unshift(`--user-agent=${DefaultOptions.userAgent}`);
 const checkMessages = async (wbot: Session, tenantId: number | string) => {
   try {
     const isConnectStatus = wbot && (await wbot.getState()) === "CONNECTED"; // getValue(`wbotStatus-${tenantId}`);
-    logger.info(
-      "wbot:checkMessages:status",
-      wbot.id,
-      tenantId,
-      isConnectStatus
-    );
+   // logger.info(
+   //   "wbot:checkMessages:status",
+    //  wbot.id,
+    //  tenantId,
+     // isConnectStatus
+   // );
 
     if (isConnectStatus) {
-      logger.info("wbot:connected:checkMessages", wbot, tenantId);
+   //   logger.info("wbot:connected:checkMessages", wbot, tenantId);
       Queue.add("SendMessages", { sessionId: wbot.id, tenantId });
     }
   } catch (error) {
