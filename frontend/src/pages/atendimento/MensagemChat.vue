@@ -210,6 +210,9 @@
                 Download Contato
               </q-btn>
             </template>
+              <template v-if="mensagem.mediaType === 'location'">
+              <VueEasyLightbox moveDisabled :visible="abrirModalImagem" :imgs="urlMedia" :index="mensagem.ticketId || 1" @hide="abrirModalImagem = false" />
+              </template>
             <template v-if=" mensagem.mediaType === 'image' ">
               <!-- @click="buscarImageCors(mensagem.mediaUrl)" -->
               <q-img

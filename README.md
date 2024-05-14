@@ -28,6 +28,7 @@ Melhorias:
 - Aceitar audios gravados no whatsapp-formato .ogg
 - Evitar duplicar contatos na importação *créditos Luiz Alvez
 - Conversão de audio de ogg para mp3 para suporte sistema IOS (necessário ter instalado ffmpeg - apt install ffmpeg)
+- Suporte receber localização
 
 # Izing
 
