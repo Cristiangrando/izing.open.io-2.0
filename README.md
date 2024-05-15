@@ -58,7 +58,7 @@ Seguem links sugerimos:
 
 -  [Como Instalar o IZING VPS - Método 2024 - UBUNTU 20, 22](docs/INSTALL_VPS_UBUNTU_20_22.md)
 
--  [Instalador automatico IZING LOCALHOST](https://github.com/cleitonme/izing-localhost)
+-  [Instalador automatico IZING LOCALHOST](https://github.com/cleitonme/izing.local)
 -  [Instalador automatico](https://github.com/cleitonme/izing.instalador)
 <br/>
 
