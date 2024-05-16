@@ -151,7 +151,7 @@ export const initWbot = async (whatsapp: Whatsapp): Promise<Session> => {
           executablePath: process.env.CHROME_BIN || undefined,
           args
         },
-        webVersion: process.env.WEB_VERSION || "2.2410.1",
+        webVersion: process.env.WEB_VERSION || "2.2412.54v2",
         webVersionCache: { type: "local" },
         qrMaxRetries: 5
       }) as Session;
