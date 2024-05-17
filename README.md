@@ -2,7 +2,9 @@
 
 ## Diferenças dessa versão repositorio ldurans
 
-Bugs:
+
+Versão: v2.1.0 (14-05-2024)
+Bug Fixes:
 
 - Correção encaminhar mensagens
 - Correção envio arquivos
