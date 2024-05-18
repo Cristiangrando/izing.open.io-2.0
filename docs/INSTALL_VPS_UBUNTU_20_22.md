@@ -557,6 +557,16 @@ docker container restart rabbitmq
 
 Pronto sistema instalado so acessar frontend
 
+Usuário painel SaaS
+
+Usuário
+
+super@izing.io  
+
+Senha:
+
+123456
+
 Usuário padrão para acesso
 
 Usuário

@@ -41,6 +41,7 @@ Melhorias:
 
 Um sistema para gestão de atendimento multicanais centralizado.
 
+usuario SaaS: super@izing.io senha: 123456
 
 **IMPORTANTE**: não garantimos que a utilização desta ferramenta não irá gerar bloqueio nas contas utilizadas. São bots que em sua maioria utilizam APIs secundarias para comunicação com os fornecedores dos serviços. Use com responsabilidade!
 
