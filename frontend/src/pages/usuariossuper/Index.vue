@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="userProfile === 'super'">
     <q-table
       class="my-sticky-dynamic q-ma-lg"
       title="Usuarios"
@@ -8,6 +8,10 @@
       :loading="loading"
       row-key="id"
       :pagination.sync="pagination"
+      virtual-scroll
+      :virtual-scroll-item-size="48"
+      :virtual-scroll-sticky-size-start="48"
+      @virtual-scroll="onScroll"
       :rows-per-page-options="[0]"
     >
       <template v-slot:top-right>
@@ -27,8 +31,7 @@
             <q-icon name="search" />
           </template>
         </q-input>
-        <q-space />
-        <q-btn
+         <q-btn
           rounded
           class="q-ml-md col"
           :class="{
@@ -37,7 +40,7 @@
           color="primary"
           label="Adicionar"
           @click="usuarioSelecionado = {}; modalUsuario = true"
-        />
+          />
 
       </template>
       <template v-slot:body-cell-acoes="props">
@@ -45,24 +48,8 @@
           <q-btn
             flat
             round
-            icon="mdi-arrow-decision-outline"
-            @click="gerirFilasUsuario(props.row)"
-          >
-            <q-tooltip>
-              Gestão de Filas do usuário
-            </q-tooltip>
-          </q-btn>
-          <q-btn
-            flat
-            round
             icon="edit"
             @click="editarUsuario(props.row)"
-          />
-          <q-btn
-            flat
-            round
-            icon="mdi-delete"
-            @click="deletarUsuario(props.row)"
           />
         </q-td>
       </template>
@@ -76,35 +63,35 @@
       @modalUsuario:usuario-criado="usuarioCriado"
       :usuarioEdicao.sync="usuarioSelecionado"
     />
-    <ModalFilaUsuario
-      :modalFilaUsuario.sync="modalFilaUsuario"
-      :usuarioSelecionado.sync="usuarioSelecionado"
-      :filas="filas"
-      @modalFilaUsuario:sucesso="UPDATE_USUARIO"
+    <ModalUsuarioEdit
+      :modalUsuario.sync="modalUsuarioEdit"
+      @modalUsuario:usuario-editado="UPDATE_USUARIO"
+      :usuarioEdicao.sync="usuarioSelecionado"
     />
   </div>
 </template>
 
 <script>
 // const userId = +localStorage.getItem('userId')
-import { ListarUsuarios, DeleteUsuario } from 'src/service/user'
-import { ListarFilas } from 'src/service/filas'
+import { AdminListarUsuarios } from 'src/service/user'
+import ModalUsuarioEdit from './ModalUsuarioedit'
 import ModalUsuario from './ModalUsuario'
-import ModalFilaUsuario from './ModalFilaUsuario'
 export default {
   name: 'IndexUsuarios',
-  components: { ModalUsuario, ModalFilaUsuario },
+  components: { ModalUsuario, ModalUsuarioEdit },
   data () {
     return {
+      userProfile: 'user',
       usuarios: [],
       usuarioSelecionado: {},
-      modalFilaUsuario: false,
       filas: [],
       optionsProfile: [
         { value: 'user', label: 'Usuário' },
-        { value: 'admin', label: 'Administrador' }
+        { value: 'admin', label: 'Administrador' },
+        { value: 'super', label: 'Super' }
       ],
       modalUsuario: false,
+      modalUsuarioEdit: false,
       filter: null,
       pagination: {
         rowsPerPage: 40,
@@ -118,17 +105,10 @@ export default {
       },
       loading: false,
       columns: [
+        { name: 'tenantId', label: 'Empresa', field: 'tenant', align: 'left', format: v => `${v.id} - ${v.name}` },
+        { name: 'id', label: 'ID', field: 'id', align: 'left' },
         { name: 'name', label: 'Nome', field: 'name', align: 'left' },
         { name: 'email', label: 'E-mail', field: 'email', align: 'left' },
-        {
-          name: 'queues',
-          label: 'Filas',
-          field: 'queues',
-          align: 'left',
-          format: (v) => !v ? '' : v.map(f => f.queue).join(', '),
-          classes: 'ellipsis',
-          style: 'max-width: 400px;'
-        },
         { name: 'profile', label: 'Perfil', field: 'profile', align: 'left', format: (v) => this.optionsProfile.find(o => o.value == v).label },
         { name: 'acoes', label: 'Ações', field: 'acoes', align: 'center' }
       ]
@@ -164,7 +144,7 @@ export default {
     },
     async listarUsuarios () {
       this.loading = true
-      const { data } = await ListarUsuarios(this.params)
+      const { data } = await AdminListarUsuarios(this.params)
       this.usuarios = data.users
       this.LOAD_USUARIOS(data.users)
       this.params.hasMore = data.hasMore
@@ -185,68 +165,43 @@ export default {
       }
     },
     usuarioCriado (usuario) {
-      const obj = [...this.usuarios]
-      obj.push(usuario)
-      this.usuarios = [...obj]
+      this.usuarios.push(usuario)
+      this.listarUsuarios()
     },
     editarUsuario (usuario) {
       this.usuarioSelecionado = usuario
-      this.modalUsuario = true
-    },
-    deletarUsuario (usuario) {
-      this.$q.dialog({
-        title: `Atenção!! Deseja realmente deletar o usuario "${usuario.name}"?`,
-        // message: 'Mensagens antigas não serão apagadas no whatsapp.',
-        cancel: {
-          label: 'Não',
-          color: 'primary',
-          push: true
-        },
-        ok: {
-          label: 'Sim',
-          color: 'negative',
-          push: true
-        },
-        persistent: true
-      }).onOk(() => {
-        this.loading = true
-        DeleteUsuario(usuario.id)
-          .then(res => {
-            this.DELETE_USUARIO(usuario.id)
-            this.$q.notify({
-              type: 'positive',
-              progress: true,
-              position: 'top',
-              message: `Usuario ${usuario.name} deletado!`,
-              actions: [{
-                icon: 'close',
-                round: true,
-                color: 'white'
-              }]
-            })
-          })
-          .catch(error => {
-            console.error(error)
-            this.$notificarErro('Não é possível deletar o usuário', error)
-          })
-        this.loading = false
-      })
-    },
-    async listarFilas () {
-      const { data } = await ListarFilas()
-      this.filas = data
-    },
-    gerirFilasUsuario (usuario) {
-      this.usuarioSelecionado = usuario
-      this.modalFilaUsuario = true
+      this.modalUsuarioEdit = true
     }
   },
   async mounted () {
-    await this.listarFilas()
     await this.listarUsuarios()
+    this.userProfile = localStorage.getItem('profile')
+    // Ouça o evento 'usuario-editado'
+    this.$root.$on('usuario-editado', () => {
+      // Atualize a página aqui
+      this.listarUsuarios()
+    })
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="sass" >
+.my-sticky-dynamic
+  /* height or max-height is important */
+  height: 85vh
+
+  .q-table__top,
+  .q-table__bottom,
+  thead tr:first-child th /* bg color is important for th; just specify one */
+    background-color: #fff
+
+  thead tr th
+    position: sticky
+    z-index: 1
+  /* this will be the loading indicator */
+  thead tr:last-child th
+    /* height of all previous header rows */
+    top: 63px
+  thead tr:first-child th
+    top: 0
 </style>

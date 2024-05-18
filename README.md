@@ -2,6 +2,10 @@
 
 ## Diferenças dessa versão repositorio ldurans
 
+Versão: v2.2.0 (18-05-2024)
+
+Melhorias:
+Liberado Painel SaaS - para acessar use usuario: super@izing.io senha: 123456
 
 Versão: v2.1.0 (14-05-2024)
 Bug Fixes:

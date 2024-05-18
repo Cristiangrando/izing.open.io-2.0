@@ -74,6 +74,10 @@ const user = {
           this.$router.push({
             name: 'home-dashboard'
           })
+        } else if (data.profile === 'super') {
+          this.$router.push({
+            name: 'empresassuper'
+          })
         } else {
           this.$router.push({
             name: 'atendimento'
