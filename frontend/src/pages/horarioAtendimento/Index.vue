@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="userProfile === 'admin'">
     <q-card
       class="q-ma-sm "
       square
@@ -183,6 +183,7 @@ export default {
   components: { VEmojiPicker },
   data () {
     return {
+      userProfile: 'user',
       optType: [
         { value: 'O', label: 'Aberto' },
         { value: 'C', label: 'Fechado' },
@@ -239,6 +240,7 @@ export default {
     }
   },
   mounted () {
+    this.userProfile = localStorage.getItem('profile')
     this.listarMensagemHorariosAtendimento()
   }
 }

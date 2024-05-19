@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="userProfile === 'admin'">
     <q-card class="q-ma-md">
       <q-card-section>
         <div class="text-h6">
@@ -163,6 +163,7 @@ export default {
   },
   data () {
     return {
+      userProfile: 'user',
       apiEdicao: {},
       modalApi: false,
       apis: [],
@@ -284,6 +285,7 @@ export default {
 
   },
   mounted () {
+    this.userProfile = localStorage.getItem('profile')
     this.listarAPIs()
   }
 }
