@@ -62,6 +62,7 @@ usuario SaaS: super@izing.io senha: 123456
 ## Instalando
 Seguem links sugerimos:
 -  [Como Instalar o IZING - Método 2024 Video](https://youtu.be/bZ-jXRtcGyc?si=B8oQxv0V0V36fgrF)
+-  [Como Instalar o IZING AAPANEL - Método 2024 Video](https://www.youtube.com/watch?v=pw5KMtdVw0s)
 
 -  [Como Instalar o IZING VPS - Método 2024 - UBUNTU 20, 22](docs/INSTALL_VPS_UBUNTU_20_22.md)
 
