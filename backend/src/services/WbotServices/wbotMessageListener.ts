@@ -3,15 +3,14 @@ import { Client } from "whatsapp-web.js";
 import HandleMessage from "./helpers/HandleMessage";
 import HandleMsgAck from "./helpers/HandleMsgAck";
 import VerifyCall from "./VerifyCall";
+import handleMsgEdit from "./helpers/handleMsgEdit";
 
 interface Session extends Client {
   id: number;
 }
 
 const wbotMessageListener = (wbot: Session): void => {
-  // const queue = `whatsapp::${wbot.id}`;
   wbot.on("message_create", async msg => {
-    // desconsiderar atualização de status
     if (msg.isStatus) {
       return;
     }
@@ -24,6 +23,10 @@ const wbotMessageListener = (wbot: Session): void => {
 
   wbot.on("message_ack", async (msg, ack) => {
     HandleMsgAck(msg, ack);
+  });
+  
+  wbot.on("message_edit", async (msg, newBody, oldBody) => {
+    handleMsgEdit(msg, newBody as string);
   });
 
   wbot.on("call", async call => {

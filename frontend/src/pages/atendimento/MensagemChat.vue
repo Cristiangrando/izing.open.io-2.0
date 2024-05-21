@@ -93,6 +93,12 @@
                 </div>
               </q-tooltip>
             </q-icon>
+            <div v-if="mensagem.edited" class="text-italic">
+            Editada: {{ mensagem.edited }}
+            </div>
+            <div v-if="mensagem.edited" class="text-italic">
+             Mensagem anterior:<br>
+            </div>
             <div
               v-if="mensagem.isDeleted"
               class="text-italic"
@@ -156,6 +162,16 @@
                   >
                     <q-item-section>Marcar (encaminhar várias)</q-item-section>
                   </q-item>
+                  <q-item
+                    @click=" AbrirmodaleditarMensagem(mensagem) "
+                    clickable
+                    v-if=" mensagem.fromMe  && mensagem.mediaType === 'chat'"
+                    :disable="ticketFocado.channel === 'messenger'"
+                  >
+                    <q-item-section>
+                      <q-item-label>Editar Mensagem</q-item-label>
+                    </q-item-section>
+                  </q-item>
                   <q-separator />
                   <q-item
                     @click=" deletarMensagem(mensagem) "
@@ -165,14 +181,6 @@
                   >
                     <q-item-section>
                       <q-item-label>Deletar</q-item-label>
-                      <!-- <q-item-label caption>
-                        Apagará mensagem: {{ isDesactivatDelete(mensagem) ? 'PARA TODOS' : 'PARAM MIN' }}
-                      </q-item-label> -->
-                      <!-- <q-tooltip :delay="500"
-                        content-class="text-black bg-red-3 text-body1">
-                        * Após 5 min do envio, não será possível apagar a mensagem. <br>
-                        ** Não está disponível para Messenger.
-                      </q-tooltip> -->
                     </q-item-section>
                   </q-item>
                 </q-list>
@@ -297,17 +305,6 @@
                   </div>
                 </q-btn>
               </div>
-              <!-- <q-btn
-                type="a"
-                color="primary"
-                outline
-                dense
-                class="q-px-sm text-center"
-                target="_blank"
-                :href="`http://docs.google.com/gview?url=${mensagem.mediaUrl}&embedded=true`"
-              >
-                Visualizar
-              </q-btn> -->
             </template>
             <div
               v-linkified
@@ -322,6 +319,20 @@
         </q-chat-message>
       </template>
     </transition-group>
+<q-dialog v-model="showModaledit">
+  <q-card>
+    <q-card-section>
+      <div class="text-h6">Editar Mensagem</div>
+    </q-card-section>
+    <q-card-section>
+      <q-input filled v-model="mensagemAtual.body" label="Mensagem" />
+    </q-card-section>
+    <q-card-actions align="right">
+      <q-btn label="Cancelar" color="negative" v-close-popup />
+      <q-btn label="Salvar" color="primary" @click="salvarMensagem" />
+    </q-card-actions>
+  </q-card>
+</q-dialog>
   </div>
 </template>
 
@@ -337,7 +348,7 @@ const downloadImageCors = axios.create({
     responseType: 'blob'
   }
 })
-import { DeletarMensagem } from 'src/service/tickets'
+import { DeletarMensagem, EditarMensagem } from 'src/service/tickets'
 import { Base64 } from 'js-base64'
 export default {
   name: 'MensagemChat',
@@ -374,6 +385,8 @@ export default {
   },
   data () {
     return {
+      mensagemAtual: { body: '' },
+      showModaledit: false,
       abrirModalImagem: false,
       urlMedia: '',
       identificarMensagem: null,
@@ -391,6 +404,31 @@ export default {
     MensagemRespondida
   },
   methods: {
+    async salvarMensagem () {
+      try {
+        const updatedMessage = await EditarMensagem({
+          id: this.mensagemAtual.id,
+          messageId: this.mensagemAtual.messageId,
+          body: this.mensagemAtual.body
+        })
+        console.log('Mensagem editada com sucesso')
+        this.showModaledit = false
+        this.atualizarMensagem(updatedMessage)
+      } catch (error) {
+        console.error('Erro ao editar a mensagem', error.message)
+        this.$notificarErro('Não foi possível editar a mensagem')
+      }
+    },
+    atualizarMensagem (updatedMessage) {
+      const index = this.mensagens.findIndex(mensagem => mensagem.id === updatedMessage.id)
+      if (index !== -1) {
+        this.mensagens.splice(index, 1, updatedMessage)
+      }
+    },
+    AbrirmodaleditarMensagem (mensagem) {
+      this.mensagemAtual = mensagem
+      this.showModaledit = true
+    },
     verificarEncaminharMensagem (mensagem) {
       const mensagens = [...this.mensagensParaEncaminhar]
       const msgIdx = mensagens.findIndex(m => m.id === mensagem.id)
@@ -432,9 +470,6 @@ export default {
       return Base64.encode(str)
     },
     isDesactivatDelete (msg) {
-      // if (msg) {
-      //   return (differenceInMinutes(new Date(), new Date(+msg.timestamp)) > 5)
-      // }
       return false
     },
     async buscarImageCors (imageUrl) {
@@ -464,13 +499,6 @@ export default {
       if (this.isDesactivatDelete(mensagem)) {
         this.$notificarErro('Não foi possível apagar mensagem com mais de 5min do envio.')
       }
-      // const diffHoursDate = differenceInHours(
-      //   new Date(),
-      //   parseJSON(mensagem.createdAt)
-      // )
-      // if (diffHoursDate > 2) {
-      //   // throw new AppError("No delete message afeter 2h sended");
-      // }
       const data = { ...mensagem }
       this.$q.dialog({
         title: 'Atenção!! Deseja realmente deletar a mensagem? ',
@@ -515,9 +543,6 @@ export default {
   },
   mounted () {
     this.scrollToBottom()
-    // this.$refs.audioMessage.forEach(element => {
-    //   element.playbackRate = 2
-    // })
   },
   destroyed () {
   }
