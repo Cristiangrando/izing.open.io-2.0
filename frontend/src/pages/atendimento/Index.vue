@@ -927,7 +927,7 @@ export default {
       return this.tickets.filter(ticket => ticket.status === 'closed' && !ticket.isGroup)
     },
     groupTickets () {
-      return this.tickets.filter(ticket => ticket.isGroup === 'true')
+      return this.tickets.filter(ticket => ticket.isGroup)
     }
   },
   methods: {
