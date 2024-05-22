@@ -33,12 +33,11 @@ export const index = async (req: Request, res: Response): Promise<Response> => {
 
 const getTenantMaxUsers = async (tenantId: string): Promise<number> => {
   try {
-    // Consulte o banco de dados para obter o valor de maxUsers para o tenantId fornecido
     const tenant = await Tenant.findOne({ where: { id: tenantId } });
     if (!tenant) {
       throw new AppError("Tenant not found", 404);
     }
-    return tenant.maxUsers; // Supondo que maxUsers seja um campo numérico na tabela Tenants
+    return tenant.maxUsers;
   } catch (error) {
     throw new AppError("Error fetching maxUsers", 500);
   }
