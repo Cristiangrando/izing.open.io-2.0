@@ -8,6 +8,7 @@ import { logger } from "../utils/logger";
 import SyncUnreadMessagesWbot from "../services/WbotServices/SyncUnreadMessagesWbot";
 import Queue from "./Queue";
 import AppError from "../errors/AppError";
+const minimalArgs = require('./minimalArgs');
 
 interface Session extends Client {
   id: number;
@@ -17,63 +18,6 @@ interface Session extends Client {
 const sessions: Session[] = [];
 
 const checking: any = {};
-const minimal_args = [
-  "--autoplay-policy=user-gesture-required",
-  "--disable-background-networking",
-  "--disable-background-timer-throttling",
-  "--disable-backgrounding-occluded-windows",
-  "--disable-breakpad",
-  "--disable-client-side-phishing-detection",
-  "--disable-component-update",
-  "--disable-default-apps",
-  "--disable-dev-shm-usage",
-  "--disable-domain-reliability",
-  "--disable-extensions",
-  "--disable-features=AudioServiceOutOfProcess",
-  "--disable-gpu",
-  "--disable-hang-monitor",
-  "--disable-ipc-flooding-protection",
-  "--disable-notifications",
-  "--disable-offer-store-unmasked-wallet-cards",
-  "--disable-popup-blocking",
-  "--disable-print-preview",
-  "--disable-prompt-on-repost",
-  "--disable-renderer-backgrounding",
-  "--disable-setuid-sandbox",
-  "--disable-speech-api",
-  "--disable-sync",
-  "--hide-scrollbars",
-  "--ignore-gpu-blacklist",
-  "--metrics-recording-only",
-  "--mute-audio",
-  "--no-default-browser-check",
-  "--no-first-run",
-  "--no-pings",
-  "--no-sandbox",
-  "--no-zygote",
-  "--password-store=basic",
-  "--use-gl=swiftshader",
-  "--disable-site-isolation-trials",
-  "--no-experiments",
-  "--ignore-certificate-errors",
-  "--ignore-certificate-errors-spki-list",
-  "--enable-features=NetworkService",
-  "--disable-webgl",
-  "--disable-threaded-animation",
-  "--disable-threaded-scrolling",
-  "--disable-in-process-stack-traces",
-  "--disable-histogram-customizer",
-  "--disable-gl-extensions",
-  "--disable-composited-antialiasing",
-  "--disable-canvas-aa",
-  "--disable-3d-apis",
-  "--disable-accelerated-2d-canvas",
-  "--disable-accelerated-jpeg-decoding",
-  "--disable-accelerated-mjpeg-decode",
-  "--disable-app-list-dismiss-on-blur",
-  "--disable-accelerated-video-decode",
-  "--use-mock-keychain"
-];
 
 export const apagarPastaSessao = async (id: number | string): Promise<void> => {
   const pathRoot = path.resolve(__dirname, "..", "..", ".wwebjs_auth");
@@ -100,7 +44,7 @@ export const removeWbot = (whatsappId: number): void => {
 
 const args: string[] = process.env.CHROME_ARGS
   ? process.env.CHROME_ARGS.split(",")
-  : minimal_args;
+  : minimalArgs;
 
 args.unshift(`--user-agent=${DefaultOptions.userAgent}`);
 const checkMessages = async (wbot: Session, tenantId: number | string) => {
