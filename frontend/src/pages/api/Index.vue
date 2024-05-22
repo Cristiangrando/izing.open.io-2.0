@@ -4,12 +4,6 @@
       <q-card-section>
         <div class="text-h6">
           Configurações API
-          <q-btn class="float-right"
-            color="primary"
-            rounded
-            label="POSTMAN"
-            style="margin: 2px;"
-            @click="download" />
           <q-btn
             class="float-right"
             color="primary"
@@ -125,8 +119,14 @@
               </p>
             </q-item-label>
             <q-item-label style="word-break: break-all;">
+            <q-btn class="float-right"
+            color="primary"
+            rounded
+            label="POSTMAN"
+            style="margin: 2px;"
+            @click="download" />
               <p class="text-weight-medium text-nowrap q-pr-md">
-                <span class="text-bold">Baixe o arquivo acima e use no para verificar como usar a api
+                <span class="text-bold">Baixe o arquivo do postman e verifique uso no site
                 </span>
                 <a href="https://www.postman.com/" target="_blank">https://www.postman.com/</a>
               </p>
