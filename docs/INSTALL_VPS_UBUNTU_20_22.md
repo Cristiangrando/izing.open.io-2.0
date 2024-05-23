@@ -497,6 +497,7 @@ sudo nano /etc/nginx/nginx.conf
 ```bash
 underscores_in_headers on;	
 client_max_body_size 100M;
+large_client_header_buffers 16 5120k;
 ```
 
 60. Testar as configurações do nginx
