@@ -264,19 +264,19 @@
           <div>
             <div class="tab-container">
               <q-tabs v-model="selectedTab" class="tab-scroll">
-                <q-tab name="open">
+                <q-tab name="open" v-if="openTickets.length > 0">
                   Abertos
                   <q-badge v-if="openTickets.length > 0" color="red" textColor="white">{{ openTickets.length }}</q-badge>
                 </q-tab>
-                <q-tab name="pending">
+                <q-tab name="pending" v-if="pendingTickets.length > 0">
                   Pendentes
                   <q-badge v-if="pendingTickets.length > 0" color="red" textColor="white">{{ pendingTickets.length }}</q-badge>
                 </q-tab>
-                <q-tab name="closed">
+                <q-tab name="closed" v-if="closedTickets.length > 0">
                   Fechados
                   <q-badge v-if="closedTickets.length > 0" color="red" textColor="white">{{ closedTickets.length }}</q-badge>
                 </q-tab>
-                <q-tab name="group">
+                <q-tab name="group" v-if="groupTickets.length > 0">
                   Grupos
                   <q-badge v-if="groupTickets.length > 0" color="red" textColor="white">{{ groupTickets.length }}</q-badge>
                 </q-tab>

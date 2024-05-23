@@ -172,10 +172,8 @@
         </div>
       </div>
     </q-list>
-
   </div>
 </template>
-
 <script>
 import { ListarChatFlow } from 'src/service/chatFlow'
 import { ListarConfiguracoes, AlterarConfiguracao } from 'src/service/configuracoes'
