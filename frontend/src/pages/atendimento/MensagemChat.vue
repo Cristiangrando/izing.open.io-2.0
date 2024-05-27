@@ -219,6 +219,15 @@
               </q-btn>
             </template>
               <template v-if="mensagem.mediaType === 'location'">
+              <q-img
+                @click=" urlMedia = mensagem.mediaUrl; abrirModalImagem = false "
+                src="/localizacao.png"
+                spinner-color="primary"
+                height="150px"
+                width="330px"
+                class="q-mt-md"
+                style="cursor: pointer;"
+              />
               <VueEasyLightbox moveDisabled :visible="abrirModalImagem" :imgs="urlMedia" :index="mensagem.ticketId || 1" @hide="abrirModalImagem = false" />
               </template>
             <template v-if=" mensagem.mediaType === 'image' ">
