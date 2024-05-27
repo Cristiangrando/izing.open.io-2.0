@@ -118,6 +118,73 @@
                 {{ api.authToken }}
               </p>
             </q-item-label>
+            <q-item-label lines="1"
+              class="q-mt-xs text-body2 text-weight-bold text-primary text-uppercase">
+            </q-item-label>
+            <q-item-label class="item-label" caption>
+              <p class="text-weight-medium">
+                <span class="text-bold">Mostrar todas informações do ticket:</span> <span> {{ montarUrlIntegraçãoshowallticket(api.id) }} </span>
+              </p>
+              <p>
+                <span class="text-bold">Exemplo de Carga (POST):</span> <span> { "number": "5511999999999" } </span>
+            </p>
+            </q-item-label>
+            <q-item-label class="item-label" caption>
+              <p class="text-weight-medium">
+                <span class="text-bold">Mostrar ticket chatbot:</span> <span> {{ montarUrlIntegraçãoshowticketchatbot(api.id) }} </span>
+              </p>
+              <p>
+                <span class="text-bold">Exemplo de Carga (POST):</span> <span> { "number": "5511999999999" } </span>
+            </p>
+            </q-item-label>
+            <q-item-label class="item-label" caption>
+              <p class="text-weight-medium">
+                <span class="text-bold">Mostrar ticket:</span> <span> {{ montarUrlIntegraçãoshowticket(api.id) }} </span>
+              </p>
+              <p>
+                <span class="text-bold">Exemplo de Carga (POST):</span> <span> { "number": "5511999999999" } </span>
+            </p>
+            </q-item-label>
+            <q-item-label class="item-label" caption>
+              <p class="text-weight-medium">
+                <span class="text-bold">Alterar fila:</span> <span> {{ montarUrlIntegraçãoupdatequeue(api.id) }} </span>
+              </p>
+              <p>
+                <span class="text-bold">Exemplo de Carga (POST):</span> <span> { "ticketId": 97, "queueId": 1 } </span>
+            </p>
+            </q-item-label>
+            <q-item-label class="item-label" caption>
+              <p class="text-weight-medium">
+                <span class="text-bold">Setar etiqueta:</span> <span> {{ montarUrlIntegraçãoupdatetag(api.id) }} </span>
+              </p>
+              <p>
+                <span class="text-bold">Exemplo de Carga (POST):</span> <span> { "ticketId": 97, "tag": 1 } </span>
+            </p>
+            </q-item-label>
+            <q-item-label class="item-label" caption>
+              <p class="text-weight-medium">
+                <span class="text-bold">Enviar mensagem texto:</span> <span> {{ montarUrlIntegração(api.id) }} </span>
+              </p>
+              <p>
+                <span class="text-bold">Exemplo de Carga (POST):</span> <span> {  "body": "A mensagem", "number": "5511999999999", "externalKey": "ID_WEBHOOK" } </span>
+            </p>
+            </q-item-label>
+            <q-item-label class="item-label" caption>
+              <p class="text-weight-medium">
+                <span class="text-bold">Enviar audio:</span> <span> {{ montarUrlIntegraçãovoice(api.id) }} </span>
+              </p>
+              <p>
+                <span class="text-bold">Exemplo de Carga (POST):</span> <span> { "audio": "https://seusite.com.br/audio.ogg", "number": "5511999999999", "externalKey": "ID_WEBHOOK" } </span>
+            </p>
+            </q-item-label>
+            <q-item-label class="item-label" caption>
+              <p class="text-weight-medium">
+                <span class="text-bold">Enviar LINK arquivo:</span> <span> {{ montarUrlIntegraçãourl(api.id) }} </span>
+              </p>
+              <p>
+                <span class="text-bold">Exemplo de Carga (POST):</span> <span> { "mediaUrl": "https://seusite.com.br/logo.png", "body": "mensagem", "number": "5511999999999", "externalKey": "ID_WEBHOOK" } </span>
+            </p>
+            </q-item-label>
             <q-item-label style="word-break: break-all;">
             <q-btn class="float-right"
             color="primary"
@@ -126,7 +193,7 @@
             style="margin: 2px;"
             @click="download" />
               <p class="text-weight-medium text-nowrap q-pr-md">
-                <span class="text-bold">Baixe o arquivo do postman e verifique uso no site
+                <span class="text-bold">Baixe o arquivo do postman  que possue outras opções verifique uso no site
                 </span>
                 <a href="https://www.postman.com/" target="_blank">https://www.postman.com/</a>
               </p>
@@ -138,7 +205,6 @@
             </q-item-label>
           </q-item-section>
         </q-item>
-
       </q-card-section>
     </q-card>
 
@@ -197,6 +263,27 @@ export default {
     },
     montarUrlIntegração (id) {
       return `${this.cBaseUrlIntegração}/${id}`
+    },
+    montarUrlIntegraçãoshowallticket (id) {
+      return `${this.cBaseUrlIntegração}/${id}/showallticket`
+    },
+    montarUrlIntegraçãoshowticketchatbot (id) {
+      return `${this.cBaseUrlIntegração}/${id}/showticketchatbot`
+    },
+    montarUrlIntegraçãoshowticket (id) {
+      return `${this.cBaseUrlIntegração}/${id}/showticket`
+    },
+    montarUrlIntegraçãoupdatequeue (id) {
+      return `${this.cBaseUrlIntegração}/${id}/updatequeue`
+    },
+    montarUrlIntegraçãoupdatetag (id) {
+      return `${this.cBaseUrlIntegração}/${id}/updatetag`
+    },
+    montarUrlIntegraçãovoice (id) {
+      return `${this.cBaseUrlIntegração}/${id}/voice`
+    },
+    montarUrlIntegraçãourl (id) {
+      return `${this.cBaseUrlIntegração}/${id}/url`
     },
     copy (text) {
       copyToClipboard(text)
