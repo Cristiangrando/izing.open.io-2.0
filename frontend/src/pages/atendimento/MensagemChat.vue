@@ -221,7 +221,7 @@
               <template v-if="mensagem.mediaType === 'location'">
               <q-img
                 @click=" urlMedia = mensagem.mediaUrl; abrirModalImagem = false "
-                src="/localizacao.png"
+                src="../../assets/localizacao.png"
                 spinner-color="primary"
                 height="150px"
                 width="330px"
