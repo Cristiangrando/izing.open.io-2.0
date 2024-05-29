@@ -199,7 +199,7 @@
                   class="q-mt-md full-width"
                   controls
                   ref="audioMessage"
-                  controlsList="nodownload noplaybackrate volume novolume"
+                  controlsList="nodownload volume novolume"
                 >
                   <source :src="mensagem.mediaUrl" type="audio/mp3" />
                 </audio>
