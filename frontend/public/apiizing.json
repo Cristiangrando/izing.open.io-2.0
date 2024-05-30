@@ -1,21 +1,21 @@
 {
 	"info": {
-		"_postman_id": "c0b1ab29-ee94-4e8a-96ce-c2a7b6cb56f5",
-		"name": "Comandos api",
+		"_postman_id": "be7f3040-5b9e-444d-802b-5ee8d58f818a",
+		"name": "API IZING",
 		"description": "Teste API IZING",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "33969866"
 	},
 	"item": [
 		{
-			"name": "ShowAllTicketInformation",
+			"name": "SendMessageAPIFile",
 			"request": {
 				"auth": {
 					"type": "bearer",
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MSwicHJvZmlsZSI6ImFkbWluIiwic2Vzc2lvbklkIjoxLCJpYXQiOjE3MDU3NjcxNDksImV4cCI6MTc2ODgzOTE0OX0.2RgbDllXF9p4QX-lYDsGNWtxK0XVtVI25_ECvFgA8EQ",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MSwicHJvZmlsZSI6ImFkbWluIiwic2Vzc2lvbklkIjoxLCJpYXQiOjE2MTU1OTM3ODIsImV4cCI6MTY3ODY2NTc4Mn0.d_irhAg5jMXHVvZoLAV1pO13nMhxuNS3u3EsKxFQUoQ",
 							"type": "string"
 						}
 					]
@@ -23,165 +23,42 @@
 				"method": "POST",
 				"header": [],
 				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"number\":\"5511999999999\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "urldaapi/showallticket",
-					"host": [
-						"urldaapi"
-					],
-					"path": [
-						"showallticket"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "ShowTicketInformationChatBot",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
+					"mode": "formdata",
+					"formdata": [
 						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MSwicHJvZmlsZSI6ImFkbWluIiwic2Vzc2lvbklkIjoxLCJpYXQiOjE3MDU3NjcxNDksImV4cCI6MTc2ODgzOTE0OX0.2RgbDllXF9p4QX-lYDsGNWtxK0XVtVI25_ECvFgA8EQ",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"number\":\"5511999999999\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "urldaapi/showticketchatbot",
-					"host": [
-						"urldaapi"
-					],
-					"path": [
-						"showticketchatbot"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "ShowTicketInformation",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
+							"key": "media",
+							"type": "file",
+							"src": "/home/durans/Downloads/577.pdf"
+						},
 						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MSwicHJvZmlsZSI6ImFkbWluIiwic2Vzc2lvbklkIjoxLCJpYXQiOjE3MDU3NjcxNDksImV4cCI6MTc2ODgzOTE0OX0.2RgbDllXF9p4QX-lYDsGNWtxK0XVtVI25_ECvFgA8EQ",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"number\":\"5511999999999\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "urldaapi/showticket",
-					"host": [
-						"urldaapi"
-					],
-					"path": [
-						"showticket"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "SetQueue",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
+							"key": "body",
+							"value": "Mensagem de teste 2",
+							"type": "text"
+						},
 						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MSwicHJvZmlsZSI6ImFkbWluIiwic2Vzc2lvbklkIjoxLCJpYXQiOjE3MDU3NjcxNDksImV4cCI6MTc2ODgzOTE0OX0.2RgbDllXF9p4QX-lYDsGNWtxK0XVtVI25_ECvFgA8EQ",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"ticketId\": 97,\n    \"queueId\": 1\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "urldaapi/updatequeue",
-					"host": [
-						"urldaapi"
-					],
-					"path": [
-						"updatequeue"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "SetTag",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
+							"key": "number",
+							"value": "5598999...",
+							"type": "text"
+						},
 						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MSwicHJvZmlsZSI6ImFkbWluIiwic2Vzc2lvbklkIjoxLCJpYXQiOjE3MDU3NjcxNDksImV4cCI6MTc2ODgzOTE0OX0.2RgbDllXF9p4QX-lYDsGNWtxK0XVtVI25_ECvFgA8EQ",
-							"type": "string"
+							"key": "externalKey",
+							"value": "externalKeydd211",
+							"type": "text"
 						}
 					]
 				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"ticketId\": 97,\n    \"tag\": 1\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "urldaapi/updatetag",
+					"raw": "http://localhost:3100/v1/api/external/999ab3a2-9f1f-4ffb-969a-bfb72234ece1",
+					"protocol": "http",
 					"host": [
-						"urldaapi"
+						"localhost"
 					],
+					"port": "3100",
 					"path": [
-						"updatetag"
+						"v1",
+						"api",
+						"external",
+						"999ab3a2-9f1f-4ffb-969a-bfb72234ece1"
 					]
 				}
 			},
@@ -195,7 +72,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MSwicHJvZmlsZSI6ImFkbWluIiwic2Vzc2lvbklkIjoxLCJpYXQiOjE3MDU3NjcxNDksImV4cCI6MTc2ODgzOTE0OX0.2RgbDllXF9p4QX-lYDsGNWtxK0XVtVI25_ECvFgA8EQ",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MSwicHJvZmlsZSI6ImFkbWluIiwic2Vzc2lvbklkIjoxLCJpYXQiOjE2MTU1OTM3ODIsImV4cCI6MTY3ODY2NTc4Mn0.d_irhAg5jMXHVvZoLAV1pO13nMhxuNS3u3EsKxFQUoQ",
 							"type": "string"
 						}
 					]
@@ -204,7 +81,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"body\": \"A mensagem\",\n    \"number\": \"5511999999999\",\n    \"externalKey\": \"ID_WEBHOOK\"\n}",
+					"raw": "{\n    \"body\": \"A mensagem desejada\",\n    \"number\": \"DDI+DDD+CELUAR === 55989...\",\n    \"externalKey\": \"ID_UNICA_DO_SISTEMA_CLIENTE_PARA_EXECUTAR_UMA_ACAO_COM_WEBHOOK\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -212,181 +89,17 @@
 					}
 				},
 				"url": {
-					"raw": "urldaapi",
+					"raw": "http://localhost:3100/v1/api/external/999ab3a2-9f1f-4ffb-969a-bfb72234ece1",
+					"protocol": "http",
 					"host": [
-						"urldaapi"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "SendMessageAPIVoice",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MSwicHJvZmlsZSI6ImFkbWluIiwic2Vzc2lvbklkIjoxLCJpYXQiOjE3MDU3NjcxNDksImV4cCI6MTc2ODgzOTE0OX0.2RgbDllXF9p4QX-lYDsGNWtxK0XVtVI25_ECvFgA8EQ",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"audio\": \"https://seusite.com.br/audio.ogg\",\n    \"number\": \"5511999999999\",\n    \"externalKey\": \"ID_WEBHOOK\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "urldaapi/voice",
-					"host": [
-						"urldaapi"
+						"localhost"
 					],
+					"port": "3100",
 					"path": [
-						"voice"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "SendMessageAPIFileURL",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MSwicHJvZmlsZSI6ImFkbWluIiwic2Vzc2lvbklkIjoxLCJpYXQiOjE3MDU3NjcxNDksImV4cCI6MTc2ODgzOTE0OX0.2RgbDllXF9p4QX-lYDsGNWtxK0XVtVI25_ECvFgA8EQ",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"mediaUrl\": \"https://seusite.com.br/logo.png\",\r\n    \"body\": \"A mensagem desejada\",\r\n    \"number\": \"5515998566622\",\r\n    \"externalKey\": \"ID_WEBHOOK\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "urldaapi/url",
-					"host": [
-						"urldaapi"
-					],
-					"path": [
-						"url"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "SendMessageAPIFile",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MSwicHJvZmlsZSI6ImFkbWluIiwic2Vzc2lvbklkIjoxLCJpYXQiOjE3MDU3NjcxNDksImV4cCI6MTc2ODgzOTE0OX0.2RgbDllXF9p4QX-lYDsGNWtxK0XVtVI25_ECvFgA8EQ",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "media",
-							"type": "file",
-							"src": "/C:/tabela.xlsx"
-						},
-						{
-							"key": "body",
-							"value": "Mensagem de teste 2",
-							"type": "text"
-						},
-						{
-							"key": "number",
-							"value": "5511999999999",
-							"type": "text"
-						},
-						{
-							"key": "externalKey",
-							"value": "externalKeydd211",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "urldaapi",
-					"host": [
-						"urldaapi"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "SendMessageParams",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "urldaapi/params/?body=A%20mensagem%20desejadaa&number=5511999999999&externalKey=ID_UNICA_DO_SISTEMA_CLIENTE&bearertoken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MSwicHJvZmlsZSI6ImFkbWluIiwic2Vzc2lvbklkIjoxLCJpYXQiOjE3MDU3NjcxNDksImV4cCI6MTc2ODgzOTE0OX0.2RgbDllXF9p4QX-lYDsGNWtxK0XVtVI25_ECvFgA8EQ",
-					"host": [
-						"urldaapi"
-					],
-					"path": [
-						"params",
-						""
-					],
-					"query": [
-						{
-							"key": "body",
-							"value": "A%20mensagem%20desejadaa"
-						},
-						{
-							"key": "number",
-							"value": "5511999999999"
-						},
-						{
-							"key": "externalKey",
-							"value": "ID_UNICA_DO_SISTEMA_CLIENTE"
-						},
-						{
-							"key": "bearertoken",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MSwicHJvZmlsZSI6ImFkbWluIiwic2Vzc2lvbklkIjoxLCJpYXQiOjE3MDU3NjcxNDksImV4cCI6MTc2ODgzOTE0OX0.2RgbDllXF9p4QX-lYDsGNWtxK0XVtVI25_ECvFgA8EQ"
-						}
+						"v1",
+						"api",
+						"external",
+						"999ab3a2-9f1f-4ffb-969a-bfb72234ece1"
 					]
 				}
 			},
