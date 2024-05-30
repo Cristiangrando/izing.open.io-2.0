@@ -132,7 +132,7 @@ class Message extends Model<Message> {
   @Default(null)
   @AllowNull
   @Column(
-    DataType.ENUM("campaign", "chat", "external", "schedule", "bot", "sync")
+    DataType.ENUM("campaign", "chat", "external", "schedule", "bot", "sync", "API")
   )
   sendType: string;
 
