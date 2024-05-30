@@ -16,7 +16,7 @@
             <q-img
               src="/logo_izing.png"
               spinner-color="white"
-              style="height: 120px; max-width: 300px"
+              style="height: 110px; max-width: 290px"
               class="q-mb-lg q-px-md"
             />
             <q-separator spaced />
@@ -87,6 +87,9 @@
               </span>
             </q-btn>
           </q-card-actions>
+              <template>
+            <div class="text-caption text-grey text-center"><a target="_blank" :href="github">{{ copyright }}</a></div>
+              </template>
           <!-- <q-btn
             flat
             color="info"
@@ -107,6 +110,7 @@
 
 <script>
 import { required, email } from 'vuelidate/lib/validators'
+import { productName, version, license, github } from '../../package.json'
 
 export default {
   name: 'Login',
@@ -120,7 +124,9 @@ export default {
       },
       contasCliente: {},
       isPwd: true,
-      loading: false
+      loading: false,
+      copyright: `Copyright ${productName} - v ${version} ${new Date().getFullYear()} licença: ${license}`,
+      github: `${github}`
     }
   },
   validations: {
