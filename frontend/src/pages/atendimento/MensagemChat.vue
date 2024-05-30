@@ -206,17 +206,18 @@
               </div>
             </template>
             <template v-if=" mensagem.mediaType === 'vcard' ">
-              <q-btn
-                type="a"
-                :color=" $q.dark.isActive ? '' : 'black' "
-                outline
-                dense
-                class="q-px-sm text-center btn-rounded "
-                download="vCard"
-                :href=" `data:text/x-vcard;charset=utf-8;base64,${returnCardContato(mensagem.body)}` "
-              >
-                Download Contato
-              </q-btn>
+                <div style="min-width: 250px;">
+                <ContatoCard
+                :mensagem="mensagem"
+                @openContactModal="openContactModal"
+                />
+                <ContatoModal
+                :value="modalContato"
+                :contact="currentContact"
+                @close="closeModal"
+                @saveContact="saveContact"
+                />
+                </div>
             </template>
               <template v-if="mensagem.mediaType === 'location'">
               <q-img
@@ -350,6 +351,8 @@ import mixinCommon from './mixinCommon'
 import axios from 'axios'
 import VueEasyLightbox from 'vue-easy-lightbox'
 import MensagemRespondida from './MensagemRespondida'
+import ContatoCard from './ContatoCard.vue'
+import ContatoModal from './ContatoModal.vue'
 const downloadImageCors = axios.create({
   baseURL: process.env.VUE_URL_API,
   timeout: 20000,
@@ -363,6 +366,10 @@ export default {
   name: 'MensagemChat',
   mixins: [mixinCommon],
   props: {
+    mensagem: {
+      type: Object,
+      required: true
+    },
     mensagens: {
       type: Array,
       default: () => []
@@ -394,6 +401,8 @@ export default {
   },
   data () {
     return {
+      modalContato: false,
+      currentContact: {},
       mensagemAtual: { body: '' },
       showModaledit: false,
       abrirModalImagem: false,
@@ -410,9 +419,22 @@ export default {
   },
   components: {
     VueEasyLightbox,
-    MensagemRespondida
+    MensagemRespondida,
+    ContatoCard,
+    ContatoModal
   },
   methods: {
+    openContactModal (contact) {
+      this.currentContact = contact
+      this.modalContato = true
+    },
+    closeModal () {
+      this.modalContato = false
+    },
+    saveContact (contact) {
+      console.log('Contato salvo:', contact)
+      // Aqui você pode adicionar a lógica para salvar o contato
+    },
     async salvarMensagem () {
       try {
         const updatedMessage = await EditarMensagem({
