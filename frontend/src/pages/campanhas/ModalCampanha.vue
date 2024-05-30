@@ -640,6 +640,13 @@ export default {
       this.loading = false
     },
     async handleCampanha () {
+      if (this.campanha.message1 === this.campanha.message2 || this.campanha.message1 === this.campanha.message3 || this.campanha.message2 === this.campanha.message3) {
+        this.$q.notify({
+          type: 'negative',
+          message: 'As mensagens não podem ser iguais'
+        })
+        return
+      }
       this.$v.campanha.$touch()
       if (this.$v.campanha.$error) {
         this.$q.notify({
