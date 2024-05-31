@@ -1,6 +1,6 @@
 [Fork do projeto ldurans](https://github.com/ldurans/izing.open.io)
 
-# Izing
+# Izing com painel SaaS
 
 Um sistema para gestão de atendimento multicanais centralizado.
 
