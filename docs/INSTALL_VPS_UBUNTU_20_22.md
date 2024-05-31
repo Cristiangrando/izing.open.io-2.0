@@ -390,36 +390,30 @@ npm install --force
 npm i @quasar/cli
 ```
 
-47. Mudar configuracao SSL para compilar
+47. Buildando o frontend
 
 ```bash
-export NODE_OPTIONS=--openssl-legacy-provider
+npm run build
 ```
 
-48. Buildando o frontend
-
-```bash
-npx quasar build -P -m pwa
-```
-
-49. Iniciando o frontend com PM2
+48. Iniciando o frontend com PM2
 ```bash
 pm2 start server.js --name izing-frontend
 ```
 
-50. Salvando os serviços iniciados pelo PM2
+49. Salvando os serviços iniciados pelo PM2
 
 ```bash
 pm2 save
 ```
 
-51. Listar os serviços iniciados pelo PM2
+50. Listar os serviços iniciados pelo PM2
 
 ```bash
 pm2 list
 ```
 
-52. Editar os dados abaixo com a URL que será usada para acessar o frontend.
+51. Editar os dados abaixo com a URL que será usada para acessar o frontend.
 
 ```bash
 server {
@@ -440,13 +434,13 @@ server {
 }
 ```
 
-53. Criar e editar o arquivo izing-frontend com o comando abaixo e prencher com os dados do item 52. Para salvar se usa Ctrl + x
+52. Criar e editar o arquivo izing-frontend com o comando abaixo e prencher com os dados do item 52. Para salvar se usa Ctrl + x
 
 ```bash
 sudo nano /etc/nginx/sites-available/izing-frontend
 ```
 
-54. Editar os dados abaixo com a URL que será usada para acessar o backend.
+53. Editar os dados abaixo com a URL que será usada para acessar o backend.
 
 ```bash
 server {
@@ -467,91 +461,90 @@ server {
 }
 ```
 
-55. Criar e editar o arquivo izing-frontend com o comando abaixo e prencher com os dados do item 54. Para salvar se usa Ctrl + x
+54. Criar e editar o arquivo izing-frontend com o comando abaixo e prencher com os dados do item 54. Para salvar se usa Ctrl + x
 
 ```bash
 sudo nano /etc/nginx/sites-available/izing-backend
 ```
 
-56. Criar link simbólico para o arquivo izing-frontend
+55. Criar link simbólico para o arquivo izing-frontend
 
 ```bash
 sudo ln -s /etc/nginx/sites-available/izing-frontend /etc/nginx/sites-enabled/
 ```
 
 
-57. Criar link simbólico para o arquivo izing-backend
+56. Criar link simbólico para o arquivo izing-backend
 
 ```bash
 sudo ln -s /etc/nginx/sites-available/izing-backend /etc/nginx/sites-enabled/
 ```
 
-58. Editar o arquivo de configuração do nginx com o comando abaixo e prencher com os dados do item 59. adicionar antes# server_tokens off;. Para salvar se usa Ctrl + x
+57. Editar o arquivo de configuração do nginx com o comando abaixo e prencher com os dados do item 59. adicionar antes# server_tokens off;. Para salvar se usa Ctrl + x
 
 ```bash
 sudo nano /etc/nginx/nginx.conf
 ```
 
-59. adicionar antes# server_tokens off;
+58. adicionar antes# server_tokens off;
 
 ```bash
 underscores_in_headers on;	
 client_max_body_size 100M;
 large_client_header_buffers 16 5120k;
 ```
-
-60. Testar as configurações do nginx
+59. Testar as configurações do nginx
 
 ```bash
 sudo nginx -t
 ```
 
-61. Restartar o nginx
+60. Restartar o nginx
 
 ```bash
 sudo service nginx restart
 ```
 
-62. Instalar o suporte a pacotes Snap
+61. Instalar o suporte a pacotes Snap
 
 ```bash
 sudo apt-get install snapd
 ```
 
-63. Instalar o pacote do notes
+62. Instalar o pacote do notes
 
 ```bash
 sudo snap install notes
 ```
 
-64. Instalar o pacote do certbot(SSL)
+63. Instalar o pacote do certbot(SSL)
 
 ```bash
 sudo snap install --classic certbot
 ```
 
-65. Gerar certificado
+64. Gerar certificado
 
 ```bash
 sudo certbot --nginx
 ```
 
-66. reniciar serviços docker
+65. reniciar serviços docker
 ```bash
 docker container restart portainer
 ```
 
-67. reniciar serviços docker
+66. reniciar serviços docker
 ```bash
 docker container restart postgresql
 ```
 
-68. reniciar serviços docker
+67. reniciar serviços docker
 ```bash
 docker container restart redis-izing
 ```
 
-69. reniciar serviços docker
+68. reniciar serviços docker
 ```bash
 docker container restart rabbitmq
 ```

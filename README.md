@@ -1,47 +1,12 @@
 [Fork do projeto ldurans](https://github.com/ldurans/izing.open.io)
 
-## Diferenças dessa versão repositorio ldurans
-
-Versão: v2.2.0 (18-05-2024)
-
-Melhorias:
-Liberado Painel SaaS - para acessar use usuario: super@izing.io senha: 123456
-
-Versão: v2.1.0 (14-05-2024)
-Bug Fixes:
-
-- Correção encaminhar mensagens
-- Correção envio arquivos
-- Correção bug montar fluxo (perdia etapa 2 cliques)
-- Correção bug envio video
-- Correção bug apagar mensagem
-- Correção bug apagar mensagem agendada
-- Correção arquivos sumir do chatbot
-
-Melhorias:
-- Arquivo server.js frontend para facilitar instalacao
-- Atualizacao versao whaapp.js^1.23.1-alpha.6 para melhorar a conexao whatsapp
-- Abas aberto, pedente, fechado e grupos no painel atendimento 
-- Tickets fechados ja vir selecionado atendimento(como coloquei abas para separar atendimentos achei melhor fechados já aparecer)
-- Fundo dark whatsapp para modo escuro 
-- Botao espiar ticket e adaptacao layout
-- Mudanca cache local melhora na conexão(depois varios testes veriquei que com essa mudança a conexão fica mais rapida e da menos erros leitura QRCODE)
-- Update libs instagram para melhor conexão com instagram
-- Botao modelo planilha para importar contatos 
-- Botao modelo POSTMAN api
-- Emoji na mensagem de despedida
-- Variáveis nas campanhas
-- Aceitar audios gravados no whatsapp-formato .ogg
-- Evitar duplicar contatos na importação *créditos Luiz Alvez
-- Conversão de audio de ogg para mp3 para suporte sistema IOS (necessário ter instalado ffmpeg - apt install ffmpeg)
-- Suporte receber localização
-- Retirada de bloqueio que não deixava voltar para etapa anterior do fluxo
-
 # Izing
 
 Um sistema para gestão de atendimento multicanais centralizado.
 
-usuario SaaS: super@izing.io senha: 123456
+usuario Painel SaaS: super@izing.io senha: 123456
+
+usuario normal: admin@izing.io senha: 123456
 
 **IMPORTANTE**: não garantimos que a utilização desta ferramenta não irá gerar bloqueio nas contas utilizadas. São bots que em sua maioria utilizam APIs secundarias para comunicação com os fornecedores dos serviços. Use com responsabilidade!
 
