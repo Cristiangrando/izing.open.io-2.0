@@ -456,7 +456,7 @@ export default {
         message2: null,
         message3: null,
         sessionId: null,
-        delay: 20
+        delay: 61
       },
       messageTemplate: {
         mediaUrl: null,
@@ -470,7 +470,7 @@ export default {
         createdAt: '2021-02-20T20:09:04.736Z',
         updatedAt: '2021-02-20T23:26:24.311Z',
         quotedMsgId: null,
-        delay: 20,
+        delay: 61,
         ticketId: 0,
         contactId: null,
         userId: null,
@@ -589,7 +589,7 @@ export default {
         message4: null,
         mediaUrl: null,
         userId: null,
-        delay: 20,
+        delay: 61,
         sessionId: null
       }
     },
@@ -644,6 +644,13 @@ export default {
         this.$q.notify({
           type: 'negative',
           message: 'As mensagens não podem ser iguais'
+        })
+        return
+      }
+      if (this.campanha.delay < 61) {
+        this.$q.notify({
+          type: 'negative',
+          message: 'O campo delay deve ser no mínimo 61'
         })
         return
       }
