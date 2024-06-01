@@ -1,3 +1,5 @@
+[![Grupo do WhatsApp](https://img.shields.io/badge/WhatsApp-Grupo%20IZING-brightgreen.svg)](https://chat.whatsapp.com/IIReEheixAx27ZbneHpskP)
+
 [Fork do projeto ldurans](https://github.com/ldurans/izing.open.io)
 
 # Izing com painel SaaS
@@ -61,4 +63,4 @@ Este projeto não é afiliado, associado, autorizado, endossado por, ou de qualq
 
 ## Consultoria particular
 
-Para quem gostaria de uma consultoria ou que eu faça instalação pode chamar no whatsapp 48 999416725 (será cobrado por isso)
+Para quem gostaria de uma consultoria ou que eu faça instalação pode chamar no whatsapp (será cobrado por isso) 48 999416725
