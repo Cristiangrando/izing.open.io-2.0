@@ -605,9 +605,6 @@ npm i npm i whatsapp-web.js@^1.23.1-alpha.6
 rm .wwebjs_auth -Rf
 ```
 ```bash
-rm .wwebjs_cache -Rf
-```
-```bash
 pm2 restart all
 ```
 
@@ -621,9 +618,6 @@ npm install github:pedroslopez/whatsapp-web.js#webpack-exodus
 ```
 ```bash
 rm .wwebjs_auth -Rf
-```
-```bash
-rm .wwebjs_cache -Rf
 ```
 ```bash
 pm2 restart all
