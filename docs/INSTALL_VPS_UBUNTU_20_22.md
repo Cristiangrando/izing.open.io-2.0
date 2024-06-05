@@ -599,7 +599,7 @@ Na pasta backend execute
 npm r whatsapp-web.js
 ```
 ```bash
-npm i npm i whatsapp-web.js@^1.23.1-alpha.6
+npm i whatsapp-web.js@^1.23.1-alpha.6
 ```
 ```bash
 rm .wwebjs_auth -Rf
