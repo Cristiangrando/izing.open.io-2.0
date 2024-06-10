@@ -571,25 +571,6 @@ Senha:
 
 123456
 
-Acessar Acesso ao Portainer: http://ip.da.vps:9000
-
-Comandos reniciar docker caso de erros
-
-```bash
-docker container restart portainer
-```
-
-```bash
-docker container restart postgresql
-```
-
-```bash
-docker container restart redis-izing
-```
-
-```bash
-docker container restart rabbitmq
-```
 
 Problemas conexão?
 
@@ -605,10 +586,13 @@ npm i whatsapp-web.js@^1.23.1-alpha.6
 rm .wwebjs_auth -Rf
 ```
 ```bash
+rm .wwebjs_cache -Rf
+```
+```bash
 pm2 restart all
 ```
 
-2. Versão ldurans
+2. Versão EXODUS
 Na pasta backend execute
 ```bash
 npm r whatsapp-web.js
@@ -620,9 +604,33 @@ npm install github:pedroslopez/whatsapp-web.js#webpack-exodus
 rm .wwebjs_auth -Rf
 ```
 ```bash
+rm .wwebjs_cache -Rf
+```
+```bash
 pm2 restart all
 ```
 
-
-
 Para reinstalar o whatsapp.js.. verifique no repositorio oficial se não tem alguma mais atual
+
+## Erros
+
+"Internal server error: SequelizeConnectionError: could not open file \"global/pg_filenode.map\": Permission denied"
+
+```bash
+docker container restart postgresql
+```
+```bash
+docker exec -u root postgresql bash -c "chown -R postgres:postgres /var/lib/postgresql/data"
+```
+```bash
+docker container restart postgresql
+```
+
+## Acesso Portainer gerar senha
+"Your Portainer instance timed out for security purposes. To re-enable your Portainer instance, you will need to restart Portainer."
+
+```bash
+docker container restart portainer
+```
+
+Depois acesse novamente url http://seuip:9000/
