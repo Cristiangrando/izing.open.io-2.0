@@ -82,11 +82,6 @@ docker run --name postgresql -e POSTGRES_USER=izing -e POSTGRES_PASSWORD=123@mud
 docker run --name redis-izing -e TZ="America/Sao_Paulo" -p 6379:6379 --restart=always -d redis:latest redis-server --appendonly yes --requirepass "123@mudar"
 ```
 
-11. Instalar Rabbitmq no Docker
-
-```bash
-docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 --restart=always --hostname rabbitmq -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=123@mudar -v /data:/var/lib/rabbitmq rabbitmq:3-management-alpine
-```
 
 12. Instalar Portainer no Docker
 
@@ -240,8 +235,8 @@ MAX_SLEEP_INTERVAL=5000
 
 # dados do RabbitMQ / Para não utilizar, basta comentar a var AMQP_URL
 RABBITMQ_DEFAULT_USER=admin
-RABBITMQ_DEFAULT_PASS=123@mudar
-AMQP_URL='amqp://admin:123@mudar@localhost:5672?connection_attempts=5&retry_delay=5'
+RABBITMQ_DEFAULT_PASS=123456
+# AMQP_URL='amqp://admin:123456@host.docker.internal:5672?connection_attempts=5&retry_delay=5'
 
 # api oficial (integração em desenvolvimento)
 API_URL_360=https://waba-sandbox.360dialog.io
@@ -296,7 +291,6 @@ npm run build
 docker container restart portainer
 docker container restart postgresql
 docker container restart redis-izing
-docker container restart rabbitmq
 ```
 
 33. Criando as tabelas no BD
@@ -542,11 +536,6 @@ docker container restart postgresql
 67. reniciar serviços docker
 ```bash
 docker container restart redis-izing
-```
-
-68. reniciar serviços docker
-```bash
-docker container restart rabbitmq
 ```
 
 Pronto sistema instalado so acessar frontend
