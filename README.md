@@ -66,4 +66,4 @@ Este projeto não é afiliado, associado, autorizado, endossado por, ou de qualq
 
 Para quem gostaria de uma consultoria ou que eu faça instalação pode chamar no whatsapp (será cobrado por isso) 48 999416725
 
--  [Versão API Bayles](https://github.com/cleitonme/izingpro.bayles)
+-  [Nova Versão usando API Bayles](https://github.com/cleitonme/izingpro.bayles)
