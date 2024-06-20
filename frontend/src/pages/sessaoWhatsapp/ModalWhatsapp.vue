@@ -278,8 +278,8 @@ export default {
       },
       optionsWhatsappsTypes: [
         { label: 'Whatsapp', value: 'whatsapp' },
-        { label: 'Telegram', value: 'telegram' },
-        { label: 'Instagram', value: 'instagram' }
+        { label: 'Telegram', value: 'telegram' }
+        // { label: 'Instagram', value: 'instagram' }
       ],
       variaveis: [
         { label: 'Nome', value: '{{name}}' },
